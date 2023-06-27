@@ -42,40 +42,52 @@ def unique():
     # for x in unique_list:
         # print (x) 
         # unique_list is, ['Candidate', 'Charles Casper Stockham', 'Diana DeGette', 'Raymon Anthony Doane'] after checking print out.
-
 unique() # calling function to run, as functions are not running unless called
+
+# votes for each candidate, we found 3 candidates in unique_list, index[0] is fieldname
+nameForCandid1=unique_list[1]
+nameForCandid2=unique_list[2]
+nameForCandid3=unique_list[3]
+
+votesForCandid1=0
+votesForCandid2=0
+votesForCandid3=0
+
+votesPercentForCandid1=0
+votesPercentForCandid2=0
+votesPercentForCandid3=0
 
 # vote counts for each candidate
 for v in range(rowCount):
-    if (unique_list[1]==csvData[v][2]): # unique_list[1] is Charles Casper Stockham
-        votesForCharles += 1    
+    if (nameForCandid1==csvData[v][2]): # is Charles Casper Stockham
+        votesForCandid1 += 1    
     
-    if (unique_list[2]==csvData[v][2]): # unique_list[2] is Diana DeGette
-        votesForDiana += 1
+    if (nameForCandid2==csvData[v][2]): # is Diana DeGette
+        votesForCandid2 += 1
 
-    if (unique_list[3]==csvData[v][2]): # unique_list[3] is Raymon Anthony Doane
-        votesForRaymon += 1
+    if (nameForCandid3==csvData[v][2]): # is Raymon Anthony Doane
+        votesForCandid3 += 1
 
 # find the max votes
-maxVotes = max(votesForCharles, votesForDiana, votesForRaymon)
+maxVotes = max(votesForCandid1, votesForCandid2, votesForCandid3)
 # find the candidate got max votes
-if (maxVotes==votesForCharles):
+if (maxVotes==votesForCandid1):
     winner='Charles Casper Stockham'
-elif (maxVotes==votesForDiana):
+elif (maxVotes==votesForCandid2):
     winner='Diana DeGette'
-elif (maxVotes==votesForRaymon):
+elif (maxVotes==votesForCandid3):
     winner='Raymon Anthony Doane'
 
 # votesPercent values
-votesPercentForCharles = round(100*votesForCharles/votesTotal, 3)
-votesPercentForDiana   = round(100*votesForDiana/votesTotal,   3)
-votesPercentForRaymon  = round(100*votesForRaymon/votesTotal,  3)
+votesPercentForCandid1 = round(100*votesForCandid1/votesTotal, 3)
+votesPercentForCandid2 = round(100*votesForCandid2/votesTotal,   3)
+votesPercentForCandid3 = round(100*votesForCandid3/votesTotal,  3)
 
 # Output Results, converting numbers to string and add required signs like %, (), etc...
 votesTotal      = str(votesTotal)
-votesForCharles = str(votesPercentForCharles) + '%   (' + str(votesForCharles) + ')'
-votesForDiana   = str(votesPercentForDiana)   + '%   (' + str(votesForDiana)   + ')'
-votesForRaymon  = str(votesPercentForRaymon)  + '%   (' + str(votesForRaymon)  + ')'
+votesForCandid1 = str(votesPercentForCandid1) + '%   (' + str(votesForCandid1) + ')'
+votesForCandid2 = str(votesPercentForCandid2) + '%   (' + str(votesForCandid2) + ')'
+votesForCandid3 = str(votesPercentForCandid3) + '%   (' + str(votesForCandid3) + ')'
 winner          = str(winner)
 
 # write all output to a string, then this string to be send to: 
@@ -96,13 +108,13 @@ outputStr += "\n"
 outputStr += "\n Total Votes                   :" + votesTotal
 outputStr += "\n"
 outputStr += "\n"
-outputStr += "\n Charles Casper Stockham       :" + votesForCharles
+outputStr += "\n Charles Casper Stockham       :" + votesForCandid1
 outputStr += "\n"
 outputStr += "\n"
-outputStr += "\n Diana DeGette                 :" + votesForDiana
+outputStr += "\n Diana DeGette                 :" + votesForCandid2
 outputStr += "\n"
 outputStr += "\n"
-outputStr += "\n Raymon Anthony Doane          :" + votesForRaymon
+outputStr += "\n Raymon Anthony Doane          :" + votesForCandid3
 outputStr += "\n"
 outputStr += "\n----------------------------------------------------------------------"
 outputStr += "\n"
