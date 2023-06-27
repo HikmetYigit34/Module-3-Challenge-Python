@@ -6,7 +6,7 @@ import csv
 
 #variable declarations and starting values
 rowCount=0
-votesTotal=1
+votesTotal=0
 
 csvData=[]
 # reading csv file
