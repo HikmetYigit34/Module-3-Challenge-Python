@@ -47,16 +47,22 @@ for m in range(totalNumberOfMonths + 1): #range is +1 because of m starting from
         if( monthlyChangeProfit > maxMonthlyChangeProfit):
             maxMonthlyChangeProfit = monthlyChangeProfit
             maxMonthName = str(csvData[m][0])
+            # split string by '-' to change the format                  # date format is day-month      like 1-Jan
+            parts = maxMonthName.split('-')                             # parts is a list with two data
+            maxMonthName = parts[1] + '-' + parts[0]                    # now date is month-day         like Jan-1
+
 
         #find min
         if( monthlyChangeProfit < minMonthlyChangeProfit):
             minMonthlyChangeProfit = monthlyChangeProfit
-            minMonthName = str(csvData[m][0])
+            minMonthName = str(csvData[m][0])                           
+            # split string by '-' to change the format                  # date format is day-month       like 1-Jan
+            parts = minMonthName.split('-')                             # parts is a list with two data
+            minMonthName = parts[1] + '-' + parts[0]                    # now date is month-day like     like Jan-1
 
 numberOfChanges = rowCount-1 
 averageChangeProfit = round(totalChangeProfit/numberOfChanges, 2)
 # print(averageChangeProfit)                                            # temporary for testing average change
-
 
 # Output Report to terminal
 totalNumberOfMonths    = str(totalNumberOfMonths) 
